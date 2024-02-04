@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "name": "🏠root",
+      "path": "."
+    },
+    {
+      "name": "📝eslint",
+      "path": "packages/eslint-config"
+    },
+    {
+      "name": "🧰ts",
+      "path": "packages/typescript-config"
+    },
+    {
+      "name": "🎲dashboard",
+      "path": "apps/dashboard"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.history": true,
+      "**/coverage": true,
+      "**/dist": true
+    },
+    "javascript.inlayHints.parameterNames.enabled": "none",
+    "typescript.inlayHints.parameterNames.enabled": "none",
+    "javascript.inlayHints.variableTypes.enabled": false,
+    "typescript.inlayHints.variableTypes.enabled": false,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.parameterTypes.enabled": false,
+    "typescript.inlayHints.parameterTypes.enabled": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true
+  }
+}

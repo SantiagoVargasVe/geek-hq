@@ -1,0 +1,26 @@
+{
+  "name": "geek-hq",
+  "private": true,
+  "scripts": {
+    "build": "turbo build --include-dependencies --no-daemon --concurrency=2",
+    "dev": "turbo dev",
+    "init": "pnpm i",
+    "clean": "rm -rf .turbo",
+    "clean:all": "rm -rf `find . -type d -name node_modules` && rm -rf `find . -type d -name dist` && rm -rf `find . -type d -name .next` `find . -type d -name .turbo`",
+    "graph": "turbo build --graph=dependencies-graph.png",
+    "watch:single": "turbo watch --continue --filter",
+    "dev:single": "turbo dev:test --filter",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  }
+}

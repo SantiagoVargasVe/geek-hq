@@ -13,6 +13,10 @@
       "path": "packages/typescript-config"
     },
     {
+      "name": "📊database",
+      "path": "packages/database"
+    },
+    {
       "name": "🎲dashboard",
       "path": "apps/dashboard"
     }

@@ -21,9 +21,55 @@ model User {
   created_at      DateTime?       @default(now())
   updated_at      DateTime?       @updatedAt
   register_status RegisterStatus? @default(UNREGISTERED)
+  Debt            Debt[]
+  DebtStructure   DebtStructure[]
 }
 
 enum RegisterStatus {
   REGISTERED
   UNREGISTERED
+}
+
+// Debts
+
+model DebtStructure {
+  id         String          @id @default(uuid())
+  amount     Float
+  created_at DateTime        @default(now())
+  updated_at DateTime        @updatedAt
+  paid_at    DateTime?
+  due_date   DateTime
+  status     StructureStatus
+  user       User            @relation(fields: [user_id], references: [id])
+  user_id    String
+  debt       Debt            @relation(fields: [debt_id], references: [id])
+  debt_id    String
+
+  @@map("debt_structures")
+}
+
+model Debt {
+  id              String          @id @default(uuid())
+  amount          Float
+  description     String
+  created_at      DateTime        @default(now())
+  updated_at      DateTime        @updatedAt
+  user            User[]
+  debt_structures DebtStructure[]
+  status          DebtStatus
+
+  @@map("debts")
+}
+
+enum StructureStatus {
+  PENDING
+  PAID
+  OVERDUE
+}
+
+enum DebtStatus {
+  ACTIVE
+  OVERDUE
+  IN_COMING
+  PAID
 }

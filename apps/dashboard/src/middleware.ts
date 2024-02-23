@@ -12,7 +12,7 @@ export default withMiddlewareAuthRequired(async (req) => {
   const sessionData = await getSession(req, res);
 
   if (!sessionData) {
-    return NextResponse.redirect(new URL("/api/auth/login", req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   }
 
   const user = await prismaEdge.user.findUnique({
@@ -35,5 +35,5 @@ export default withMiddlewareAuthRequired(async (req) => {
 });
 
 export const config = {
-  matcher: ["/register", "/admin"],
+  matcher: ["/register", "/dashboard"],
 };

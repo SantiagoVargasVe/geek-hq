@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+
+import { ThemeProvider } from "./providers/theme-provider";
+
+import { ReactQueryClientProvider } from "./providers/ReactQueryClientProvider";
+
 import "./globals.css";
 
 const archivo = Archivo({ subsets: ["latin"] });
@@ -18,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <UserProvider>
-        <body className={archivo.className}>{children}</body>
+        <body className={archivo.className}>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+          </ThemeProvider>
+        </body>
       </UserProvider>
     </html>
   );
